@@ -7,9 +7,9 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
 @Entity
+@Setter
+@Getter
 public class Answer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +20,7 @@ public class Answer {
 
     private LocalDateTime createDate;
 
-    @ManyToOne
+    // 기본은 fetch = FetchType.EAGER
+    @ManyToOne(fetch = FetchType.LAZY)
     private Question question;
 }
