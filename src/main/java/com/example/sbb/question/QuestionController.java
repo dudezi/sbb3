@@ -27,4 +27,16 @@ public class QuestionController {
         model.addAttribute("question", question);
         return "question_detail";
     }
+
+    @GetMapping("/create")
+    public String create() {
+        return "question_form";
+    }
+
+    @PostMapping("/create")
+    public String create(@RequestParam("subject") String subject, @RequestParam("content") String content) {
+        this.questionService.create(subject, content);
+
+        return "redirect:/question/list";
+    }
 }
