@@ -1,6 +1,7 @@
 package com.example.sbb.answer;
 
 import com.example.sbb.question.Question;
+import com.example.sbb.user.SiteUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,12 +12,13 @@ import java.time.LocalDateTime;
 public class AnswerService {
     private final AnswerRepository answerRepository;
 
-    public void create(Question question, String content) {
+    public Answer create(Question question, String content, SiteUser author) {
         Answer answer = new Answer();
         answer.setContent(content);
         answer.setQuestion(question);
         answer.setCreateDate(LocalDateTime.now());
-
-        answerRepository.save(answer);
+        answer.setAuthor(author);
+        this.answerRepository.save(answer);
+        return answer;
     }
 }

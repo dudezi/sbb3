@@ -1,6 +1,7 @@
 package com.example.sbb.answer;
 
 import com.example.sbb.question.Question;
+import com.example.sbb.user.SiteUser;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,4 +24,7 @@ public class Answer {
     // 기본은 fetch = FetchType.EAGER
     @ManyToOne(fetch = FetchType.LAZY)
     private Question question;
+
+    @ManyToOne
+    private SiteUser author;
 }
