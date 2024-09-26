@@ -24,16 +24,16 @@ public class Question {
     @Column(columnDefinition = "TEXT")
     private String content;
 
+    @ManyToOne
+    SiteUser author;
+
     private LocalDateTime createDate;
+
+    private LocalDateTime modifyDate;
 
     // 기본은 fetch = FetchType.LAZY
     @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     private List<Answer> answerList;
-
-    @ManyToOne
-    private SiteUser author;
-
-    private LocalDateTime modifyDate;
 
     @ManyToMany
     Set<SiteUser> voter;

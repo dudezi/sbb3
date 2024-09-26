@@ -35,15 +35,17 @@ dependencies {
 	testImplementation 'org.junit.jupiter:junit-jupiter'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
-	//타임리프
+	// 타임리프
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	//타임리프 레이아웃
+	// 타임리프 레이아웃
 	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
-	//validation
+	// validation
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	// spring security
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+	// markdown
+	implementation 'org.commonmark:commonmark:0.21.0'
 }
 
 tasks.named('test') {

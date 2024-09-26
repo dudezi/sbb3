@@ -20,16 +20,16 @@ public class Answer {
     @Column(columnDefinition = "TEXT")
     private String content;
 
+    @ManyToOne
+    SiteUser author;
+
     private LocalDateTime createDate;
+
+    private LocalDateTime modifyDate;
 
     // 기본은 fetch = FetchType.EAGER
     @ManyToOne(fetch = FetchType.LAZY)
     private Question question;
-
-    @ManyToOne
-    private SiteUser author;
-
-    private LocalDateTime modifyDate;
 
     @ManyToMany
     Set<SiteUser> voter;
